@@ -155,19 +155,25 @@ async function getCryptoPrices() {
 
   // renderLineGraph(Bitcoin);
   // renderLineGraph(json.data);
-  for (let index = 0; index < 3; index++) {
-    // const element = array[index];
-    const coins = json.data[index];
-    renderLineGraph(json.data[index]);
-  }
+  // for (let index = 0; index < 3; index++) {
+  //   // const element = array[index];
+  //   const coins = json.data[index];
+  //   renderLineGraph(json.data[0],json.data[1],json.data[2]);
+  // }
+  renderLineGraph(json.data[0], json.data[1], json.data[2]);
 }
 getCryptoPrices();
 
-function renderLineGraph(coin) {
+function renderLineGraph(coin1, coin2, coin3) {
   const ctx = document.getElementById("myChart");
-  const price = coin.quote.USD.price;
-  console.log("here", coin);
-  const [ninetyAgoPrice] = getHistoricPrices(coin.quote.USD);
+  const price1 = coin1.quote.USD.price;
+  const price2 = coin2.quote.USD.price;
+  const price3 = coin3.quote.USD.price;
+  console.log("price", price1);
+  console.log("here", coin1);
+  const [ninetyAgoPrice] = getHistoricPrices(coin1.quote.USD);
+  console.log("ninetyAgoPrice", ninetyAgoPrice);
+
   const timeAgo = ["90d", "60d", "30d", "7d", "24h", "1h", "Current"];
 
   const myChart = new Chart(ctx, {
@@ -177,11 +183,25 @@ function renderLineGraph(coin) {
       // labels: ["Bitcoin", "Ethereum", "Tether"],
       datasets: [
         {
-          label: [coin.name],
+          label: "Bitcoin",
           borderWidth: 1,
-          data: getHistoricPrices(coin.quote.USD),
-          borderColor: "rgba(255, 99, 132, 1)",
-          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          data: getHistoricPrices(coin1.quote.USD),
+          borderColor: "rgba(255, 9, 132, 1)",
+          backgroundColor: "rgba(255, 9, 132, 0.2)",
+        },
+        {
+          label: "Ethereum",
+          borderWidth: 1,
+          data: getHistoricPrices(coin2.quote.USD),
+          borderColor: "rgba(25, 99, 132, 1)",
+          backgroundColor: "rgba(25, 99, 132, 0.2)",
+        },
+        {
+          label: "Tether",
+          borderWidth: 1,
+          data: getHistoricPrices(coin3.quote.USD),
+          borderColor: "rgba(55, 99, 32, 1)",
+          backgroundColor: "rgba(55, 99, 132, 0.2)",
         },
       ],
     },
@@ -195,7 +215,7 @@ function renderLineGraph(coin) {
           {
             ticks: {
               beginAtZero: false,
-              suggestedMax: price,
+              suggestedMax: price1,
               suggestedMin: ninetyAgoPrice,
             },
           },
@@ -203,7 +223,7 @@ function renderLineGraph(coin) {
       },
     },
   });
-  console.log("check", myChart);
+  // console.log("check", myChart);
 }
 function getHistoricPrices(prices) {
   const {
