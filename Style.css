@@ -1,0 +1,23 @@
+.container {
+  /* border: 2px solid black; */
+  /* background-color: blueviolet; */
+  margin: 0px 100px 0px 100px;
+  /* display: flex; */
+}
+
+#newsList {
+  /* border: 2px solid black; */
+  /* background-color: yellowgreen; */
+}
+.mb-3 {
+  background-color: gainsboro;
+  border-radius: 2%;
+}
+.align-self-center {
+  /* display: flex; */
+  justify-self: center;
+}
+.article {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: x-large;
+}
