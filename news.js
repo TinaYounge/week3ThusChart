@@ -3,11 +3,7 @@ function produceDefaultUrl() {
 
   // Look at all url query parameters and add them to the url above to respect language/country/category/page/etc.
   const urlParams = window.location.search.split("?")[1];
-  console.log("here", window);
-  // console.log("here", urlParams);
-  // Guard against no url params and default to english.
   if (!urlParams) return url + "&language=en";
-
   urlParams.split("&").map((p) => {
     // "Massage data" into workable form.
     const [key, value] = p.split("=");
@@ -23,10 +19,21 @@ async function getArticles() {
   const json = await response.json();
   const { articles } = json;
   console.log({ json });
-  document.getElementById("title").innerHTML = `CoderNews (${articles.length})`;
   const articlesHTML = articles.map(renderArticle);
   console.log(articlesHTML);
   document.getElementById("newsList").innerHTML = articlesHTML.join("");
+  let goodArticles = articles.reduce((accumulator, currentValue) => {
+    if (
+      currentValue.urlToImage != undefined &&
+      currentValue.author != undefined
+    )
+      accumulator.push(currentValue);
+    // return [...accumulator, ...currentValue];
+  }, []);
+  console.log("goodArticles", goodArticles);
+  document.getElementById(
+    "title"
+  ).innerHTML = `CoderNews (${goodArticles.length})`;
 }
 
 getArticles();

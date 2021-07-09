@@ -1,12 +1,13 @@
 .container {
   /* border: 2px solid black; */
   /* background-color: blueviolet; */
-  margin: 0px 100px 0px 100px;
+  margin: 10px 100px 0px 100px;
   /* display: flex; */
 }
 
 .mb-3 {
   background-color: gainsboro;
+  margin: 10px 200px 0px 200px;
   border-radius: 2%;
 }
 .align-self-center {
@@ -15,7 +16,7 @@
 }
 .article {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: x-large;
+  font-size: 18px;
 }
 * {
   list-style-type: none;
