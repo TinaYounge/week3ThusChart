@@ -27,13 +27,12 @@ async function getArticles() {
       currentValue.urlToImage != undefined &&
       currentValue.author != undefined
     )
-      accumulator.push(currentValue);
-    // return [...accumulator, ...currentValue];
-  }, []);
+      return accumulator + 1;
+    else return accumulator;
+  }, 0);
+
   console.log("goodArticles", goodArticles);
-  document.getElementById(
-    "title"
-  ).innerHTML = `CoderNews (${goodArticles.length})`;
+  document.getElementById("title").innerHTML = `CoderNews (${goodArticles})`;
 }
 
 getArticles();
