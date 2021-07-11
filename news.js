@@ -1,6 +1,7 @@
 function produceDefaultUrl() {
-  let url = `https://gnews.io/api/v4/top-headlines?token=bad48fad81cfc0564a7919cdc8e2f935
-  `;
+  let url = `https://gnews.io/api/v4/top-headlines?token=a2c0769df580c64f7b27c4c74f10d0c4`;
+  // let url = `https://gnews.io/api/v4/top-headlines?token=bad48fad81cfc0564a7919cdc8e2f935
+  //  `;
 
   const urlParams = window.location.search.split("?")[1];
   // console.log(window);

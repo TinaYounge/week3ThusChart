@@ -5,17 +5,7 @@ const totalCoin = ["Bitcoin", "Ethereum", "Tether"];
 // 5. Consume Data into Chart
 async function getCryptoPrices() {
   const response = await fetch(cryptoURL);
-  // console.log("response", response);
   const json = await response.json();
-  // const Bitcoin = json.data[0];
-  // console.log("json", json);
-  // renderLineGraph(Bitcoin);
-  // renderLineGraph(json.data);
-  // for (let index = 0; index < 3; index++) {
-  //   // const element = array[index];
-  //   // const coins = json.data[index];
-  //   renderLineGraph(json.data[index]);
-  // }
   renderLineGraph(json.data[0], json.data[1], json.data[2]);
 }
 getCryptoPrices();
@@ -26,8 +16,6 @@ function renderLineGraph(coin1, coin2, coin3) {
   const price1 = coin1.quote.USD.price;
   const price2 = coin2.quote.USD.price;
   const price3 = coin3.quote.USD.price;
-  // console.log("price", price1);
-  // console.log("coin", coin1);
   const [ninetyAgoPrice] = getHistoricPrices(coin1.quote.USD);
   // console.log("ninetyAgoPrice", ninetyAgoPrice);
   const coinColor = {
