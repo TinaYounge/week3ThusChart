@@ -1,5 +1,10 @@
+const ctx = document.getElementById("myChart");
+ctx.width = 350;
+ctx.height = 150;
+let key = "164359c0-aec7-4b9a-b562-783e4724fc85";
 const cryptoURL =
-  "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=3&convert=USD&CMC_PRO_API_KEY=164359c0-aec7-4b9a-b562-783e4724fc85";
+  "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=3&convert=USD&CMC_PRO_API_KEY=" +
+  key;
 
 const totalCoin = ["Bitcoin", "Ethereum", "Tether"];
 // 5. Consume Data into Chart
@@ -11,7 +16,7 @@ async function getCryptoPrices() {
 getCryptoPrices();
 
 function renderLineGraph(coin1, coin2, coin3) {
-  const ctx = document.getElementById("myChart");
+  // const ctx = document.getElementById("myChart");
 
   const price1 = coin1.quote.USD.price;
   const price2 = coin2.quote.USD.price;
