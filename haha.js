@@ -15,7 +15,6 @@ async function fetchCoinData() {
     const json = await response.json();
     bitCoinData = json.data;
     data = bitCoinData;
-    console.log({ bitCoinData });
   } catch (error) {
     console.log(error);
   } finally {

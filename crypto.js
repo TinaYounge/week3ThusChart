@@ -73,8 +73,8 @@ function renderLineGraph(coin1, coin2, coin3) {
           {
             ticks: {
               beginAtZero: false,
-              suggestedMax: price1,
-              suggestedMin: ninetyAgoPrice,
+              // suggestedMax: price1,
+              // suggestedMin: ninetyAgoPrice,
             },
           },
         ],
@@ -121,13 +121,13 @@ function getHistoricPrices(prices) {
   );
 
   return [
-    Math.floor(ninetyAgoPrice),
-    Math.floor(sixtyAgoPrice),
-    Math.floor(thirtyAgoPrice),
-    Math.floor(sevenAgoPrice),
-    Math.floor(dayAgoPrice),
-    Math.floor(hourAgoPrice),
-    Math.floor(price),
+    ninetyAgoPrice,
+    sixtyAgoPrice,
+    thirtyAgoPrice,
+    sevenAgoPrice,
+    dayAgoPrice,
+    hourAgoPrice,
+    price,
   ];
 }
 function calculatePriceFromPercentageChange(currentPrice, percentageChange) {
@@ -148,7 +148,7 @@ function calculatePriceFromPercentageChange(currentPrice, percentageChange) {
     const original = (currentPrice / (100 + percentageChange)) * 100;
     historicPrice = original;
   }
-  // let historicPrice = Math.floor(historicPrice);
+  // let historicPrice = historicPrice);
   return historicPrice;
   // console.log("price", historicPrice);
   // console.log("priceType", typeof historicPrice);
