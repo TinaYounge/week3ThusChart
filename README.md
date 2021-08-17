@@ -3,5 +3,7 @@
 ## About app
 -The place you can read and search for news.
 ## Tools
-1.Javascript
-2.Rest API
+
+* JavarScript
+* bootstrap
+* Rest API
